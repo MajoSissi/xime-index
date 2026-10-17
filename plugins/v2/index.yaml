@@ -1,7 +1,7 @@
 # Xime v2 插件子索引（JS/QuickJS 插件，宿主 >=3.0.0）
 # ⚠️ 此文件由 scripts/ci-update.py 自动生成，请勿手动编辑
 index_version: 2
-updated_at: '2026-10-11'
+updated_at: '2026-10-17'
 plugins:
 - id: com.kingzcheung.xime.plugin.ai_reply
   name: AI 智能回复

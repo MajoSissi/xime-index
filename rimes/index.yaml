@@ -1,7 +1,7 @@
 # Xime 输入方案子索引
 # ⚠️ 此文件由 scripts/ci-update.py 自动生成，请勿手动编辑
 index_version: 1
-updated_at: '2026-10-11'
+updated_at: '2026-10-17'
 schemas:
 - id: builtin
   name: 默认方案
@@ -104,6 +104,32 @@ schemas:
     - url: https://github.com/rime/rime-quick/archive/refs/heads/master.zip
       sha256: ''
       size: ''
+- id: rime-cantonese
+  name: 粵語拼音方案
+  author: CanCLID
+  description: 粵語拼音方案，採用香港語言學學會粵拼（Jyutping），支援聲調輸入、IPA 顯示、Emoji 及普通話／筆畫／倉頡反查。
+  type: remote
+  tags:
+  - 粵語
+  - 拼音
+  - 反查
+  homepage: https://github.com/rime/rime-cantonese
+  license: CC-BY-4.0
+  dependencies:
+  - luna_pinyin
+  - stroke
+  - cangjie
+  appVersion: '>=2.3.0'
+  currentVersion: latest
+  versions:
+  - version: latest
+    date: '2024-12-15'
+    changelog: ''
+    downloadUrl:
+    - url: https://github.com/rime/rime-cantonese/archive/refs/tags/latest.zip
+      sha256: 47461c203a85e448e39b4ddb632b65720e7c255c2fbd52753b288e6a801c02c3
+      size: 4.6 MB
+      sizeBytes: 4817001
 - id: rime-frost
   name: 白霜拼音
   author: gaboolic
