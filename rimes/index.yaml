@@ -187,18 +187,18 @@ schemas:
   - 双拼
   homepage: https://github.com/amzxyz/rime-wanxiang
   appVersion: '>=2.4.0'
-  currentVersion: v17.9.6
+  currentVersion: v18.1.4
   versions:
-  - version: v17.9.6
-    date: '2026-09-03'
-    changelog: '- 全面重构Lua，细化优化多处细节 '
+  - version: v18.1.4
+    date: '2026-10-17'
+    changelog: '- 特征词汇迁移到模型缩减词库尺寸,模型进一步净化缩减到380M '
     downloadUrl:
-    - url: https://github.com/amzxyz/rime-wanxiang/releases/download/v17.9.6/rime-wanxiang-base.zip
-      sha256: d07be3fb1f7011843b2c316c8476a4ad5ab4f58a5a9a14e0a15157cc29320e93
-      size: 33.6 MB
+    - url: https://github.com/amzxyz/rime-wanxiang/releases/download/v18.1.4/rime-wanxiang-base.zip
+      sha256: d12f648327b0eb16c7cfca4ffd010885fc850773fcf7eb81090e2414b6ac9a3e
+      size: 24.4 MB
     - url: https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram
       sha256: ''
-      size: 401 MB
+      size: 380 MB
       sizeBytes: 123026414
 - id: stroke
   name: 笔画
