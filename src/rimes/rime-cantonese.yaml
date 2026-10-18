@@ -13,7 +13,7 @@ dependencies:
 - luna_pinyin
 - stroke
 - cangjie
-appVersion: '>=2.3.0'
+appVersion: '>=3.2.3'
 currentVersion: latest
 versions:
 - version: latest
