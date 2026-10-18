@@ -155,6 +155,108 @@ def fill_files_checksums(data: dict) -> dict:
     return result
 
 
+# ─── 按记录值校验远端文件（检测内容被替换/篡改）──────────────
+
+
+def collect_remote_items(data: dict):
+    """收集 data 中所有带 url 的下载项。
+
+    返回 [(version_index, version, kind, item)]：
+      - kind: "downloadUrl[i]" / "archive" / "files[i]"
+      - version_index 为 versions 列表中的原始下标，便于整版剔除
+    跳过 version 为 master/main 的版本。
+    """
+    items = []
+    for vi, v in enumerate(data.get("versions", []) or []):
+        ver = v.get("version", "?")
+        if should_skip_version(ver):
+            continue
+        for i, dl in enumerate(v.get("downloadUrl", []) or []):
+            if dl.get("url"):
+                items.append((vi, ver, f"downloadUrl[{i}]", dl))
+        archive = v.get("archive") or {}
+        if archive.get("url"):
+            items.append((vi, ver, "archive", archive))
+        for i, f_item in enumerate(v.get("files", []) or []):
+            if f_item.get("url"):
+                items.append((vi, ver, f"files[{i}]", f_item))
+    return items
+
+
+def check_checksums(data: dict) -> dict:
+    """下载远端文件，与索引中记录的 sha256 逐一比对（不修改任何数据）。
+
+    只校验记录了 sha256 的下载项；未记录 sha256 的无法校验，单独列出。
+    返回 dict：
+      checked      已校验（有 sha256）的项数
+      mismatch     [(vi, version, kind, url, expected, actual, size_h)] sha256 不一致
+      error        [(vi, version, kind, url, reason)] 下载失败，无法校验
+      unverifiable [(vi, version, kind, url)] 未记录 sha256，无法校验
+      size_warn    [(vi, version, kind, url, expected_bytes, actual_bytes)] sizeBytes 记录不一致
+      bad_versions {vi: [原因]} sha256 不一致的版本（应下架）
+    """
+    result = {
+        "checked": 0,
+        "mismatch": [],
+        "error": [],
+        "unverifiable": [],
+        "size_warn": [],
+        "bad_versions": {},
+    }
+
+    for vi, ver, kind, item in collect_remote_items(data):
+        url = item["url"]
+        expected = (item.get("sha256") or "").strip()
+        if not expected:
+            result["unverifiable"].append((vi, ver, kind, url))
+            continue
+
+        actual, nbytes, size_h = download_checksum(url)
+        if actual is None:
+            result["error"].append((vi, ver, kind, url, "下载失败"))
+            continue
+
+        result["checked"] += 1
+        if actual.lower() != expected.lower():
+            result["mismatch"].append((vi, ver, kind, url, expected, actual, size_h))
+            result["bad_versions"].setdefault(vi, []).append(f"{kind}: sha256 不一致")
+            continue
+
+        recorded_bytes = item.get("sizeBytes")
+        if recorded_bytes and int(recorded_bytes) != nbytes:
+            result["size_warn"].append((vi, ver, kind, url, recorded_bytes, nbytes))
+
+    return result
+
+
+def prune_bad_versions(data: dict, label: str = ""):
+    """剔除 sha256 不匹配的版本，避免被替换的内容进入索引。
+
+    返回 (new_data, report)；report 为 check_checksums 的结果。
+    currentVersion 若指向被剔除的版本，则回退到剩余最新的版本。
+    """
+    report = check_checksums(data)
+    if not report["bad_versions"]:
+        return data, report
+
+    versions = data.get("versions", []) or []
+    kept = [v for i, v in enumerate(versions) if i not in report["bad_versions"]]
+    prefix = f"{label} " if label else ""
+    for i in sorted(report["bad_versions"]):
+        print(f"  🚫 {prefix}v{versions[i].get('version')}: sha256 不匹配，已剔除")
+        for reason in report["bad_versions"][i]:
+            print(f"       └ {reason}")
+
+    new_data = dict(data)
+    new_data["versions"] = kept
+    kept_versions = [v.get("version") for v in kept]
+    if new_data.get("currentVersion") not in kept_versions:
+        if kept:
+            print(f"     ↳ currentVersion 回退到 {kept[0].get('version')}")
+            new_data["currentVersion"] = kept[0].get("version")
+    return new_data, report
+
+
 def recalc_model_size(data: dict) -> dict:
     """
     重新计算模型级 size = 所有版本中所有文件 sizeBytes 的总和。

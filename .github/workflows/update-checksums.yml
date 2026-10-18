@@ -23,17 +23,31 @@ jobs:
       - name: Install uv
         run: pip install uv
 
-      - name: Fill missing sha256/size in source files
+      - name: Fill missing sha256/size and regenerate indexes
         run: uv run python scripts/ci-update.py
 
-      - name: Commit changes back
+      # 兜底：ci-update.py 只读 src/，若此处发现 src/ 被改动说明脚本行为异常，直接失败
+      - name: Ensure src/ is never modified
+        run: |
+          if ! git diff --quiet -- src; then
+            echo "::error::CI 不允许修改 src/，请检查 scripts/ci-update.py"
+            git diff --stat -- src
+            exit 1
+          fi
+
+      - name: Commit generated indexes back
         run: |
           git config user.name "xime-bot[bot]"
           git config user.email "136334520+xime-bot[bot]@users.noreply.github.com"
-          git add -A
+          # 只提交生成的子索引，绝不提交 src/ 等其他路径
+          git add rimes/index.yaml \
+                  plugins/index.yaml \
+                  plugins/v2/index.yaml \
+                  models/index.yaml \
+                  layouts/index.yaml
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "ci: auto-fill sha256/size for tagged releases [skip ci]"
+            git commit -m "ci: regenerate index files [skip ci]"
             git push
           fi
