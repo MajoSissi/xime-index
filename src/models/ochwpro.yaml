@@ -1,6 +1,6 @@
 id: ochwpro
 name: 手写模型
-author: kingzcheung
+author: Kor1
 description: 基于 Transformer 的手写文字识别模型
 category: handwriting
 size: 7.00 MB

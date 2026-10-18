@@ -1,6 +1,6 @@
 id: punctuation_int8
 name: 标点预测模型 int8
-author: kingzcheung
+author: Kor1
 description: 基于 Transformer 的中文标点预测模型,自2.6.0 版本起废弃。
 category: punctuation
 size: 2.2 MB

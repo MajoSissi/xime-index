@@ -1,6 +1,6 @@
 id: predictive-text-base
 name: 智能联想模型 base 版本
-author: kingzcheung
+author: Kor1
 description: 相比 small 版本，模型更大，预测更准确。需要 v2.6.0 及以上版本才能使用。旧版本理论也支持，但是无法保证可用性。
 category: prediction
 size: 36.35MB
