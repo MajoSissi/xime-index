@@ -1,6 +1,6 @@
 id: flypy
 name: 小鹤双拼带韵母
-author: kingzcheung
+author: Kor1
 description: 专属于小鹤双拼版本。
 tags:
   - 布局
@@ -11,22 +11,23 @@ appVersion: ">=3.0.0"
 requiresSchemes: []
 # 截图：仅详情页展示（1~5 张）
 screenshots:
-  - https://cdn.jsdelivr.net/gh/cz-archive/flypy@1.0.0/images/0.jpg
+  - https://cdn.jsdelivr.net/gh/cz-archive/flypy@1.0.1/images/0.jpg
 currentVersion: "1.0.1"
 versions:
   - version: "1.0.1"
     date: "2026-10-01"
     changelog: fix bugs。
     # 纯文本布局（无 themes/fonts 资源）→ 单文件形态，直接引用 xime.custom.yaml。
-    # URL 必须不可变：这里固定到 commit（不打 tag / 不用分支名）。
+    # URL 必须不可变：这里指向 GitHub Release 附件（不可变，且自带固定 sha256）。
     downloadUrl:
-      - url: https://cdn.jsdelivr.net/gh/cz-archive/flypy@1.0.1/xime.custom.yaml
-        size: "2.5 KB"
+      - url: https://github.com/cz-archive/flypy/releases/download/1.0.1/xime.custom.yaml
+        sha256: "374436059654282d191cbaef10eeb2a33fc00d8566e268556a6434cb9429a7c4"
+        size: "11.9 KB"
   - version: "1.0.0"
     date: "2026-09-25"
     changelog: 首个版本。
-    # 纯文本布局（无 themes/fonts 资源）→ 单文件形态，直接引用 xime.custom.yaml。
-    # URL 必须不可变：这里固定到 commit（不打 tag / 不用分支名）。
+    # 无 Release 附件，固定到该版本的 commit（不可变）。
     downloadUrl:
-      - url: https://cdn.jsdelivr.net/gh/cz-archive/flypy@1.0.0/xime.custom.yaml
-        size: "2.5 KB"
+      - url: https://cdn.jsdelivr.net/gh/cz-archive/flypy@c906ab6b2ae87e07f659ec3a2a98fafdce7656ae/xime.custom.yaml
+        sha256: "3c54792cf406de0f08df343e22db8555d793b9028e9369299ed125505edaa298"
+        size: "10.8 KB"

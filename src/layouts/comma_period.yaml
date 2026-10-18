@@ -1,0 +1,25 @@
+id: comma_period
+name: 逗号句号分开布局
+author: Kor1
+description: 在标准全键盘上方新增一行数字，中文键盘长按出符号、英文键盘直接上屏。
+tags:
+  - 布局
+  - 全键盘
+repo: https://github.com/cz-archive/comma_period
+license: GPL-3.0
+appVersion: ">=3.0.0"
+requiresSchemes: []
+# 截图：仅详情页展示（1~5 张）
+screenshots:
+  - https://cdn.jsdelivr.net/gh/cz-archive/comma_period@1.0.0/0.jpg
+currentVersion: "1.0.0"
+versions:
+  - version: "1.0.0"
+    date: "2026-10-18"
+    changelog: 首个版本：标准 4 行布局 + 顶部数字行（中英各 5 行）。
+    # 纯文本布局（无 themes/fonts 资源）→ 单文件形态，直接引用 xime.custom.yaml。
+    # URL 必须不可变：这里指向 GitHub Release 附件（不可变，且自带固定 sha256）。
+    downloadUrl:
+      - url: https://github.com/cz-archive/comma_period/releases/download/1.0.0/xime.custom.yaml
+        sha256: "3727498bc94c0867affb14a4af1942572855d720a3cdbae2a93cd8ce651b4099"
+        size: "1.4 KB"

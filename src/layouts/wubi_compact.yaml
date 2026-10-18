@@ -1,6 +1,6 @@
 id: wubi_compact
 name: 五笔86紧凑布局
-author: kingzcheung
+author: Kor1
 description: 五笔86紧凑布局，显示五笔86版本的字根在按键上。
 tags:
   - 布局
@@ -18,7 +18,8 @@ versions:
     date: "2026-09-25"
     changelog: 首个版本：标准 4 行布局 + 顶部数字行（中英各 5 行）。
     # 纯文本布局（无 themes/fonts 资源）→ 单文件形态，直接引用 xime.custom.yaml。
-    # URL 必须不可变：这里固定到 commit（不打 tag / 不用分支名）。
+    # URL 必须不可变：这里指向 GitHub Release 附件（不可变，且自带固定 sha256）。
     downloadUrl:
-      - url: https://cdn.jsdelivr.net/gh/cz-archive/wubi_compact@1.0.1/xime.custom.yaml
-        size: "2.5 KB"
+      - url: https://github.com/cz-archive/wubi_compact/releases/download/1.0.1/xime.custom.yaml
+        sha256: "30684dc7767d5a654031f3c38dfb7b3973a70140e2fd1012468c59b18dbe10a9"
+        size: "10.4 KB"

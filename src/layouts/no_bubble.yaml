@@ -1,6 +1,6 @@
 id: no_bubble
 name: 无气泡布局
-author: kingzcheung
+author: Kor1
 description: 给全键盘布局去掉气泡提示，适合熟练用户使用。
 tags:
   - 布局
@@ -18,7 +18,8 @@ versions:
     date: "2026-10-02"
     changelog: 首个版本。
     # 纯文本布局（无 themes/fonts 资源）→ 单文件形态，直接引用 xime.custom.yaml。
-    # URL 必须不可变：这里固定到 commit（不打 tag / 不用分支名）。
+    # URL 必须不可变：这里指向 GitHub Release 附件（不可变，且自带固定 sha256）。
     downloadUrl:
-      - url: https://cdn.jsdelivr.net/gh/cz-archive/no_bubble@1.0.0/xime.custom.yaml
-        size: "2.5 KB"
+      - url: https://github.com/cz-archive/no_bubble/releases/download/1.0.0/xime.custom.yaml
+        sha256: "a2d9a4a389fbea72a0a641602ca3e0f967015f3c9b2a4d524d4f97fba420fa30"
+        size: "27.7 KB"

@@ -1,6 +1,6 @@
 id: msdouble
 name: 双拼布局（微软双拼）
-author: kingzcheung
+author: Kor1
 description: 专属于微软双拼版本。
 tags:
   - 布局
@@ -18,7 +18,8 @@ versions:
     date: "2026-09-25"
     changelog: 首个版本。
     # 纯文本布局（无 themes/fonts 资源）→ 单文件形态，直接引用 xime.custom.yaml。
-    # URL 必须不可变：这里固定到 commit（不打 tag / 不用分支名）。
+    # URL 必须不可变：这里指向 GitHub Release 附件（不可变，且自带固定 sha256）。
     downloadUrl:
-      - url: https://cdn.jsdelivr.net/gh/cz-archive/msdouble@1.0.0/xime.custom.yaml
-        size: "2.5 KB"
+      - url: https://github.com/cz-archive/msdouble/releases/download/1.0.0/xime.custom.yaml
+        sha256: "546818990de4e6ed93a4b7f3ea7534141d317b9f89b47d59ddd5d5a54142fb33"
+        size: "13.6 KB"
