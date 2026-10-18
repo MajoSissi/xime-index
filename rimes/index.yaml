@@ -1,7 +1,7 @@
 # Xime 输入方案子索引
 # ⚠️ 此文件由 scripts/ci-update.py 自动生成，请勿手动编辑
 index_version: 1
-updated_at: '2026-10-17'
+updated_at: '2026-10-18'
 schemas:
 - id: builtin
   name: 默认方案
@@ -119,7 +119,7 @@ schemas:
   - luna_pinyin
   - stroke
   - cangjie
-  appVersion: '>=2.3.0'
+  appVersion: '>=3.2.3'
   currentVersion: latest
   versions:
   - version: latest

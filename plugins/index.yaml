@@ -1,7 +1,7 @@
 # Xime 插件子索引（旧版 Lua/DEX，兼容旧版 App）
 # ⚠️ 此文件由 scripts/ci-update.py 自动生成，请勿手动编辑
 index_version: 1
-updated_at: '2026-10-17'
+updated_at: '2026-10-18'
 plugins:
 - id: com.kingzcheung.xime.plugin.funasr_asr
   name: 阿里百炼 FunAsr
