@@ -1,0 +1,25 @@
+id: xime_26key_enhance
+name: 26键多功能布局
+author: C.C.
+description: 数字与字母上滑输入常用标点与符号,禁用空格语音输入,上/下滑均可触发 A/全选、S/重复上次输入、Z/撤销、X/剪切、C/复制、V/粘贴、B/换行、N/行首、M/行尾
+tags:
+  - 资源加速
+  - 全键盘
+  - 全功能键盘
+repo: https://github.com/MajoSissi/xime-26key-enhance
+homepage: https://github.com/MajoSissi/xime-26key-enhance
+license: GPL-3.0
+appVersion: ">=3.0.0"
+requiresSchemes: []
+screenshots:
+  - https://cdn.jsdelivr.net/gh/MajoSissi/xime-26key-enhance@3b2e27b8be98e47af48d4ae79e7f4e5d25ae5f21/images/0.jpg
+  - https://cdn.jsdelivr.net/gh/MajoSissi/xime-26key-enhance@3b2e27b8be98e47af48d4ae79e7f4e5d25ae5f21/images/1.jpg
+currentVersion: "1.0.0"
+versions:
+  - version: "1.0.0"
+    date: "2026-10-19"
+    changelog: 首版
+    downloadUrl:
+      - url: https://github.com/MajoSissi/xime-26key-enhance/releases/download/1.0.0/xime.custom.yaml
+        sha256: "3767bbeeab6d690b21a8eae55e6173740fcc42ef4b97b798ce95db884da846ff"
+        size: "10.2 KB"
