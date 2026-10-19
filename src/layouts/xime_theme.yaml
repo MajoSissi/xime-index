@@ -1,0 +1,28 @@
+id: xime_theme
+name: "xime 多主题"
+author: tiengming
+description: 为 Xime 键盘提供五套主题配色：星野夜航、Notion 极简、Claude 暖砂、Apple 原生、Material You 动态。一键切换，适配 Xime 3.0。
+tags:
+  - 配色
+repo: https://github.com/tiengming/xime_flypy_proxy
+license: GPL-3.0
+appVersion: ">=3.0.0"
+requiresSchemes: []
+
+screenshots:
+  - https://cdn.jsdelivr.net/gh/tiengming/xime_flypy_proxy@xime_theme-1.0.0/images/img1.jpg
+  - https://cdn.jsdelivr.net/gh/tiengming/xime_flypy_proxy@xime_theme-1.0.0/images/img2.jpg
+  - https://cdn.jsdelivr.net/gh/tiengming/xime_flypy_proxy@xime_theme-1.0.0/images/img3.jpg
+  - https://cdn.jsdelivr.net/gh/tiengming/xime_flypy_proxy@xime_theme-1.0.0/images/img4.jpg
+  - https://cdn.jsdelivr.net/gh/tiengming/xime_flypy_proxy@xime_theme-1.0.0/images/img5.jpg
+
+currentVersion: "1.0.0"
+
+versions:
+  - version: "1.0.0"
+    date: "2026-10-19"
+    changelog: 初始版本，包含五套主题配色（星野夜航 / Notion 极简 / Claude 暖砂 / Apple 原生 / Material You 动态）。
+    downloadUrl:
+      - url: https://github.com/tiengming/xime_flypy_proxy/releases/download/xime_theme-1.0.0/xime.custom.yaml
+        sha256: "aa3008cb63a1c2ee63df5bf30fb9d427433b0b62967a27c6a5fed55c663347d1"
+        size: "3.5 KB"
